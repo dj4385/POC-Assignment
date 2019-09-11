@@ -1,0 +1,84 @@
+.row{
+    border: 2px solid red;
+    display: flex;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.row > .col{
+    display: inline-block;
+    margin: 10px;
+    width: 45%;
+    padding: 10px;
+}
+.bgColor{
+    background-color: #DBF3FA;
+}
+.tableRes{
+    height: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+table{
+    width: 100%;
+    padding: 5px;
+}
+table>.table_header{
+    border: 2px solid red;
+}
+
+.bill{
+    background: white;
+    font-weight: bold;
+}
+.cancelBtn{
+    background-color: tomato;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid tomato;
+    border-radius: 4px;
+
+}
+.processBtn{
+    background-color: #5cb85c;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #5cb85c;
+    border-radius: 4px;
+}
+
+.products{  
+    border: 2px solid;
+    height: 500px;
+    overflow-y: scroll
+}
+.products> .product{
+    background-color: #5cb85c;
+    height: 83px;
+    width: 100px;
+    display: inline-grid;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 5px;
+}
+.products> .product>img{
+    height: 80px;
+    width: 100px;
+    opacity: 0.2;
+}
+.products> .product>.productContent{
+    
+    height: 100%;
+    position: relative;
+    bottom: 90px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+}
+/* .product>.productContent:hover{
+    display: inline-block;
+} */

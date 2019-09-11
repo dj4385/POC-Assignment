@@ -1,0 +1,67 @@
+<h1>Main Screen</h1>
+<div class="row">
+  <div class="col bgColor">
+    <div class="tableRes">
+      <table>
+        <thead class="table_header">
+          <tr>
+            <th>PRODUCTS</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PRODUCTS NAME</td>
+            <td>PRICE VALUE</td>
+            <td>QUANTITY AMOUNT</td>
+            <td>TOTAL</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bill">
+      <table>
+        <tr>
+          <td>Sub Total</td>
+          <td>--price--</td>
+          <td>--amount--</td>
+        </tr>
+        <tr>
+          <td>VAT tax</td>
+          <td>--price--</td>
+          <td>--amount--</td>
+        </tr>
+        <tr>
+          <td>Discount</td>
+          <td>--price--</td>
+          <td>--amount--</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>--price--</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" class="cancelBtn" value="CANCEL SALE">
+          </td>
+          <td colspan="2">
+            <input type="button" class="processBtn" value="PROCESS SALE">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col bgColor">
+    <div class="products">
+      <div class="product" *ngFor="let item of products">
+        <img src='{{"../../assets/images/" + item.image}}' alt="">
+        <div class="productContent">
+          <p>{{item.name}} <br> {{item.price}} <br></p>
+          <!-- {{item.description}} -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
