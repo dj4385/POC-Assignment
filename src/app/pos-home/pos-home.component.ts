@@ -10,6 +10,7 @@ export class PosHomeComponent implements OnInit {
 
   products:any = []
   selectedProducts: any = []
+  
 
   constructor(
     private productSer : ProductSerService
@@ -28,16 +29,32 @@ export class PosHomeComponent implements OnInit {
   }
 
   addItem(event){
-    event.qty = 1
+    let flag = 0;
     if(this.selectedProducts.length == 0){
-      this.selectedProducts.push(event)  
+      // event.qty = 1
+      // event.totalItemPrice = event.qty * parseInt(event.price)
+      // this.selectedProducts.push(event)  
+      flag = 1
     } else {
       this.selectedProducts.forEach(element => {
-        if(element.name === event.name){
-          this.selectedProducts.fill(element.qty = event.qty +=1)
+        if(element.name == event.name){
+          console.log('Element found')
+        }
+        else {
+          flag = 1;
         }
         
       });
+      
+      
+    }
+
+    if(flag === 1){
+      event.qty = 1
+      event.totalItemPrice = event.qty * parseInt(event.price)
+      this.selectedProducts.push(event)
+    } else {
+      console.log('you need to increase the qty')
     }
     
   }
