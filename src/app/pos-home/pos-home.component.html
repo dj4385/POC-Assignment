@@ -5,6 +5,7 @@
       <table>
         <thead class="table_header">
           <tr>
+            <th></th>
             <th>PRODUCTS</th>
             <th>PRICE</th>
             <th>QUANTITY</th>
@@ -12,11 +13,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>PRODUCTS NAME</td>
-            <td>PRICE VALUE</td>
-            <td>QUANTITY AMOUNT</td>
-            <td>TOTAL</td>
+          <tr *ngFor="let Selecteditem of selectedProducts">
+            <td>
+              <input type="button" value="X">
+            </td>
+            <td>{{Selecteditem.name}}</td>
+            <td>{{Selecteditem.price}}</td>
+            <td>
+              <div class="qty"><input type="button" name="" id="" value="+">
+              <!-- <input type="number" name="" id="" readonly> -->
+              <span>{{Selecteditem.qty}}</span>
+              <input type="button" name="" id="" value="-"></div>
+            </td>
+            <td>Prcie</td>
           </tr>
         </tbody>
       </table>
@@ -56,11 +65,13 @@
   <div class="col bgColor">
     <div class="products">
       <div class="product" *ngFor="let item of products">
-        <img src='{{"../../assets/images/" + item.image}}' alt="">
-        <div class="productContent">
-          <p>{{item.name}} <br> {{item.price}} <br></p>
-          <!-- {{item.description}} -->
-        </div>
+        <!-- <ng-container (click)="addItem()"> -->
+          <img src='{{"../../assets/images/" + item.image}}' alt="">
+          <div class="productContent" (click)="addItem(item)">
+            <span>{{item.name}}</span><br>
+            <p><br> {{item.price}} <br> {{item.description}}</p>
+          </div>
+        <!-- </ng-container> -->
       </div>
     </div>
   </div>

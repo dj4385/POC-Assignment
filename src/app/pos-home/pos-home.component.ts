@@ -9,6 +9,8 @@ import { ProductSerService } from '../product-ser.service';
 export class PosHomeComponent implements OnInit {
 
   products:any = []
+  selectedProducts: any = []
+
   constructor(
     private productSer : ProductSerService
   ) { }
@@ -20,10 +22,24 @@ export class PosHomeComponent implements OnInit {
   getProducts(){
     this.productSer.getAllProducts().subscribe(res=>{
       this.products = res;
-      console.log(this.products)
     },err=>{
-      console.log(err)
+      alert(err.message)
     })
+  }
+
+  addItem(event){
+    event.qty = 1
+    if(this.selectedProducts.length == 0){
+      this.selectedProducts.push(event)  
+    } else {
+      this.selectedProducts.forEach(element => {
+        if(element.name === event.name){
+          this.selectedProducts.fill(element.qty = event.qty +=1)
+        }
+        
+      });
+    }
+    
   }
 
 }

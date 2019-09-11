@@ -1,5 +1,4 @@
 .row{
-    border: 2px solid red;
     display: flex;
 }
 h1{
@@ -24,9 +23,9 @@ table{
     width: 100%;
     padding: 5px;
 }
-table>.table_header{
+/* table>.table_header{
     border: 2px solid red;
-}
+} */
 
 .bill{
     background: white;
@@ -51,13 +50,11 @@ table>.table_header{
 }
 
 .products{  
-    border: 2px solid;
     height: 500px;
     overflow-y: scroll
 }
 .products> .product{
     background-color: #5cb85c;
-    height: 83px;
     width: 100px;
     display: inline-grid;
     border-radius: 2px;
@@ -82,3 +79,21 @@ table>.table_header{
 /* .product>.productContent:hover{
     display: inline-block;
 } */
+.products> .product>.productContent>p{
+    position: relative;
+    bottom: 35px;
+    height: 100px;
+    display: none;
+}
+.products> .product>.productContent:hover p{
+    display: inline-block;
+}
+.qty{
+    text-align: center;
+}
+.qty>input{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 4px;
+}
