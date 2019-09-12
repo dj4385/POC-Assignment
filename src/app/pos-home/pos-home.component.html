@@ -15,14 +15,14 @@
         <tbody>
           <tr *ngFor="let Selecteditem of selectedProducts">
             <td>
-              <input type="button" value="X" (click)="deleteItem(Selecteditem)">
+              <span class="cross" (click)="deleteItem(Selecteditem)">X</span>
             </td>
             <td>{{Selecteditem.name}}</td>
             <td>{{Selecteditem.price}}</td>
             <td>
               <div class="qty"><input type="button" name="" id="" value="+" (click)="incrementQty(Selecteditem)">
-              <!-- <input type="number" name="" id="" readonly> -->
-              <span>{{Selecteditem.qty}}</span>
+              <input type="number" name="" id="" readonly>
+              <!-- <span>{{Selecteditem.qty}}</span> -->
               <input type="button" name="" id="" value="-" (click)="decrementQty(Selecteditem)"></div>
             </td>
             <td>{{Selecteditem.totalItemPrice}}</td>
@@ -53,10 +53,10 @@
         </tr>
         <tr>
           <td>
-            <input type="button" class="cancelBtn" value="CANCEL SALE">
+            <input type="button" class="cancelBtn" value="CANCEL SALE" (click)="cancelSale()">
           </td>
           <td colspan="2">
-            <input type="button" class="processBtn" value="PROCESS SALE">
+            <input type="button" class="processBtn" value="PROCESS SALE" (click)="processSale()">
           </td>
         </tr>
       </table>

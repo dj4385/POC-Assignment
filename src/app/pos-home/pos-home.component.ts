@@ -77,4 +77,15 @@ export class PosHomeComponent implements OnInit {
     }
   }
 
+  cancelSale(){
+    this.selectedProducts.length = ''
+  }
+  processSale(){
+    if(this.selectedProducts.length === 0){
+      alert('Cannot Process sale')
+    } else {
+      alert('Process is start')
+    }
+  }
+
 }
