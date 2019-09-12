@@ -15,15 +15,15 @@
         <tbody>
           <tr *ngFor="let Selecteditem of selectedProducts">
             <td>
-              <input type="button" value="X">
+              <input type="button" value="X" (click)="deleteItem(Selecteditem)">
             </td>
             <td>{{Selecteditem.name}}</td>
             <td>{{Selecteditem.price}}</td>
             <td>
-              <div class="qty"><input type="button" name="" id="" value="+">
+              <div class="qty"><input type="button" name="" id="" value="+" (click)="incrementQty(Selecteditem)">
               <!-- <input type="number" name="" id="" readonly> -->
               <span>{{Selecteditem.qty}}</span>
-              <input type="button" name="" id="" value="-"></div>
+              <input type="button" name="" id="" value="-" (click)="decrementQty(Selecteditem)"></div>
             </td>
             <td>{{Selecteditem.totalItemPrice}}</td>
           </tr>

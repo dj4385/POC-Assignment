@@ -58,5 +58,23 @@ export class PosHomeComponent implements OnInit {
     }
     
   }
+  incrementQty(item){
+    
+  }
+  decrementQty(item){
+    
+  }
+
+  deleteItem(item){
+    let flag = 0
+    this.selectedProducts.forEach(element => {
+      if(element.name === item.name){
+        flag = 1
+      }
+    });
+    if(flag === 1){
+      this.selectedProducts.splice(this.selectedProducts.indexOf(item),1)
+    }
+  }
 
 }
