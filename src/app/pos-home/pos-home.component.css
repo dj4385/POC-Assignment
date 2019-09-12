@@ -20,6 +20,7 @@ h1{
     overflow-x: hidden
 }
 table{
+    background-color: white;
     width: 100%;
     padding: 5px;
 }
@@ -56,38 +57,43 @@ table{
     overflow-y: scroll
 }
 .products> .product{
-    background-color: #5cb85c;
+    position: relative;
     width: 100px;
+    height: 100px;
     display: inline-grid;
     border-radius: 2px;
     margin: 5px;
     padding: 5px;
+}
+.products> .product:nth-child(2n+1){
+    background-color: #5cb85c;
+}
+.products> .product:nth-child(2n+2){
+    background-color: orange;
+}
+.products> .product:nth-child(3n+2){
+    background-color: blueviolet;
 }
 .products> .product>img{
     height: 80px;
     width: 100px;
     opacity: 0.2;
 }
-.products> .product>.productContent{
-    
-    height: 100%;
+.products> .product>span{
     position: relative;
-    bottom: 90px;
-    padding: 10px;
-    color: white;
     text-align: center;
-    line-height: 20px;
+    color:white;
+    bottom: 75px;
 }
-/* .product>.productContent:hover{
-    display: inline-block;
-} */
-.products> .product>.productContent>p{
+.products> .product>p{
     position: relative;
-    bottom: 35px;
-    height: 100px;
-    display: none;
+    text-align: center;
+    color:white;
+    bottom: 120px;
+    font-size: 14px;
+    display: none
 }
-.products> .product>.productContent:hover p{
+.products> .product:hover p{
     display: inline-block;
 }
 .qty{
@@ -125,18 +131,26 @@ table{
 .cross{
     background-color: red;
     border-radius: 50%;
-    font-size: 17px;
+    font-size: 14px;
+    font-weight: 700;
     color: white;
-    padding: 3px;
+    padding: 5px;
 }
 
 /* Model css */
 .billModel{
-    border: 2px solid red;
-    margin : 0 30% 0 30%;
+    /* display: inline-block; */
+    display: none;
+    position: relative;
+    bottom: 550px;
+    margin : 0 35% 0 35%;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .billModel>.header{
-    border: 2px solid 0c2461;
+    border: 2px solid #0c2461;
+    border-start-end-radius: 4px;
+    border-start-start-radius: 4px;
     padding: 1px 10px;
     background-color:#0c2461; 
 }
@@ -146,15 +160,20 @@ table{
     font-size: 18px;
 }
 .billModel>.body{
-    border: 2px solid green;
     padding: 20px;
+    background-color: white;
 }
 .billModel>.body > h3{
     text-align: center;
 }
+.billModel>.body>.Producttable{
+    border-bottom: 2px solid gray ;
+}
 .billModel>.footer{
-    border: 2px solid green;
     padding: 10px 5px;
+    background-color: white;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 .billModel>.footer>input{
     background-color: transparent;

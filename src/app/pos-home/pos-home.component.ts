@@ -10,6 +10,10 @@ export class PosHomeComponent implements OnInit {
 
   date = new Date
   products:any = []
+  subTotal = '0.000' 
+  total = ''
+  _qty = '0'
+
   selectedProducts: any = []
   
 
@@ -54,10 +58,18 @@ export class PosHomeComponent implements OnInit {
       event.qty = 1
       event.totalItemPrice = event.qty * parseInt(event.price)
       this.selectedProducts.push(event)
+      this.calculateAmount()
     } else {
       console.log('you need to increase the qty')
     }
     
+  }
+  calculateAmount(){
+    this.selectedProducts.forEach(element => {
+      this.subTotal = element.totalItemPrice 
+      this._qty = element.qty
+      this.total = this.subTotal
+    });
   }
   incrementQty(item){
     
@@ -75,11 +87,17 @@ export class PosHomeComponent implements OnInit {
     });
     if(flag === 1){
       this.selectedProducts.splice(this.selectedProducts.indexOf(item),1)
+      this.subTotal = '0.000' 
+      this.total = ''
+      this._qty = '0'
     }
   }
 
   cancelSale(){
     this.selectedProducts.length = ''
+    this.subTotal = '0.000' 
+    this.total = ''
+    this._qty = '0'
   }
   processSale(){
     if(this.selectedProducts.length === 0){
