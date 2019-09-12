@@ -8,6 +8,7 @@ import { ProductSerService } from '../product-ser.service';
 })
 export class PosHomeComponent implements OnInit {
 
+  date = new Date
   products:any = []
   selectedProducts: any = []
   
