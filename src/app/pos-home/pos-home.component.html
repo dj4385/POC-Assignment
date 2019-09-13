@@ -91,11 +91,11 @@
         <th>SubTotal</th>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let item of selectedProducts; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.qty}}</td>
+          <td>{{item.totalItemPrice}}</td>
         </tr>
       </tbody>
     </table>
@@ -103,9 +103,9 @@
       <tbody>
         <tr>
           <td>Total Items</td>
-          <td>totalItem</td>
+          <td>{{billQty}}</td>
           <td>Total</td>
-          <td>totalAmt</td>
+          <td>{{billTotalAmt}}</td>
         </tr>
         <tr>
           <td colspan="2"></td>

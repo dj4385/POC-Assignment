@@ -140,9 +140,9 @@ table{
 /* Model css */
 .billModel{
     /* display: inline-block; */
-    display: none;
+    /* display: none; */
     position: relative;
-    bottom: 550px;
+    /* bottom: 550px; */
     margin : 0 35% 0 35%;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);

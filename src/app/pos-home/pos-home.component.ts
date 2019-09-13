@@ -13,6 +13,10 @@ export class PosHomeComponent implements OnInit {
   subTotal = '0.000' 
   total = ''
   _qty = '0'
+  billQty = 0
+  billTotalAmt = 0
+  billDis = 0
+  billVAT = 0
 
   selectedProducts: any = []
   
@@ -133,7 +137,15 @@ export class PosHomeComponent implements OnInit {
       alert('Cannot Process sale')
     } else {
       alert('Process is start')
+      this.checkOutFn()
     }
+  }
+
+  checkOutFn(){
+    this.selectedProducts.forEach(element=>{
+      this.billQty += element.qty
+      this.billTotalAmt += element.totalItemPrice
+    })
   }
 
 }
