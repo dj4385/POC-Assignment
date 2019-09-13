@@ -21,7 +21,7 @@
             <td>{{Selecteditem.price}}</td>
             <td>
               <div class="qty"><input type="button" name="" id="" value="+" (click)="incrementQty(Selecteditem)">
-              <input type="number" name="" id="" readonly>
+              <input type="number" name="" id="" [value]="Selecteditem.qty" #quantity readonly>
               <!-- <span>{{Selecteditem.qty}}</span> -->
               <input type="button" name="" id="" value="-" (click)="decrementQty(Selecteditem)"></div>
             </td>
@@ -66,10 +66,10 @@
     <div class="products">
       <div class="product" *ngFor="let item of products">
         <!-- <ng-container (click)="addItem()"> -->
-          <img src='{{"../../assets/images/" + item.image}}' alt="" (click)="addItem(item)">
+          <img src='{{"../../assets/images/" + item.image}}' alt="">
           <!-- <div class="productContent" > -->
             <span>{{item.name}}</span><br>
-            <p><br> {{item.price}} <br> {{item.description}}</p>
+            <p (click)="addItem(item)"><br> {{item.price}} <br> {{item.description}}</p>
           <!-- </div> -->
         <!-- </ng-container> -->
       </div>

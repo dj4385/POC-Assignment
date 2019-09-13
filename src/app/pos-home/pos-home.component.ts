@@ -36,14 +36,19 @@ export class PosHomeComponent implements OnInit {
   addItem(event){
     let flag = 0;
     if(this.selectedProducts.length == 0){
-      // event.qty = 1
-      // event.totalItemPrice = event.qty * parseInt(event.price)
-      // this.selectedProducts.push(event)  
       flag = 1
     } else {
       this.selectedProducts.forEach(element => {
         if(element.name == event.name){
-          console.log('Element found')
+          this.selectedProducts.forEach(element => {
+            if(element.name === event.name){
+              event.qty++
+              event.totalItemPrice = event.qty * parseInt(event.price)
+              this._qty = event.qty
+              this.subTotal = event.totalItemPrice
+              this.total = this.subTotal
+            }
+          });
         }
         else {
           flag = 1;
@@ -60,7 +65,7 @@ export class PosHomeComponent implements OnInit {
       this.selectedProducts.push(event)
       this.calculateAmount()
     } else {
-      console.log('you need to increase the qty')
+      
     }
     
   }
@@ -72,10 +77,34 @@ export class PosHomeComponent implements OnInit {
     });
   }
   incrementQty(item){
-    
+    this.selectedProducts.forEach(element => {
+      if(element.name === item.name){
+        item.qty++
+        item.totalItemPrice = item.qty * parseInt(item.price)
+        this._qty = item.qty
+        this.subTotal = item.totalItemPrice
+        this.total = this.subTotal
+      }
+    });  
   }
   decrementQty(item){
-    
+    this.selectedProducts.forEach(element => {
+      if(element.name === item.name){
+        if(item.qty === 0){
+          item.qty = 0;
+          item.totalItemPrice = item.qty * parseInt(item.price)
+          this._qty = item.qty
+          this.subTotal = item.totalItemPrice
+          this.total = this.subTotal
+        } else {
+          item.qty--;
+          item.totalItemPrice = item.qty * parseInt(item.price)
+          this._qty = item.qty
+          this.subTotal = item.totalItemPrice
+          this.total = this.subTotal
+        }
+      }
+    });
   }
 
   deleteItem(item){
