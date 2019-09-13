@@ -11,12 +11,13 @@ export class PosHomeComponent implements OnInit {
   date = new Date
   products:any = []
   subTotal = '0.000' 
-  total = ''
+  total = '0.000'
   _qty = '0'
   billQty = 0
   billTotalAmt = 0
   billDis = 0
   billVAT = 0
+  isBillGenerated = false
 
   selectedProducts: any = []
   
@@ -94,8 +95,8 @@ export class PosHomeComponent implements OnInit {
   decrementQty(item){
     this.selectedProducts.forEach(element => {
       if(element.name === item.name){
-        if(item.qty === 0){
-          item.qty = 0;
+        if(item.qty === 1){
+          item.qty = 1;
           item.totalItemPrice = item.qty * parseInt(item.price)
           this._qty = item.qty
           this.subTotal = item.totalItemPrice
@@ -136,7 +137,7 @@ export class PosHomeComponent implements OnInit {
     if(this.selectedProducts.length === 0){
       alert('Cannot Process sale')
     } else {
-      alert('Process is start')
+      this.isBillGenerated = true
       this.checkOutFn()
     }
   }
@@ -146,6 +147,17 @@ export class PosHomeComponent implements OnInit {
       this.billQty += element.qty
       this.billTotalAmt += element.totalItemPrice
     })
+  }
+  close(){
+    this.selectedProducts.length = ''
+    this.subTotal = '0.000' 
+    this.total = '0.000'
+    this._qty = '0'
+    this.billQty = 0
+    this.billTotalAmt = 0
+    this.billDis = 0
+    this.billVAT = 0
+    this.isBillGenerated = false
   }
 
 }

@@ -66,7 +66,7 @@
     <div class="products">
       <div class="product" *ngFor="let item of products">
         <!-- <ng-container (click)="addItem()"> -->
-          <img src='{{"../../assets/images/" + item.image}}' alt="">
+          <img src='{{"../../assets/images/" + item.image}}' alt="" (click)="addItem(item)">
           <!-- <div class="productContent" > -->
             <span>{{item.name}}</span><br>
             <p (click)="addItem(item)"><br> {{item.price}} <br> {{item.description}}</p>
@@ -76,7 +76,7 @@
     </div>
   </div>
 </div>
-<div class="billModel">
+<div class="billModel" *ngIf="isBillGenerated">
   <div class="header">
     <p>Receipt</p>
   </div>
@@ -121,6 +121,6 @@
     </table>
   </div>
   <div class="footer">
-    <input type="button" value="Close" class="closeBtn">
+    <input type="button" value="Close" class="closeBtn" (click)="close()">
   </div>
 </div>
