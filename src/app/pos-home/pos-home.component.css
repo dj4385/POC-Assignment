@@ -8,14 +8,17 @@ h1{
 .row > .col{
     display: inline-block;
     margin: 10px;
-    width: 45%;
+    width: 35%;
     padding: 10px;
+}
+.row > .col:nth-child(2){
+    width: 55%;
 }
 .bgColor{
     background-color: #DBF3FA;
 }
 .tableRes{
-    height: 350px;
+    height: 250px;
     overflow-y: scroll;
     overflow-x: hidden
 }
@@ -50,7 +53,7 @@ table{
 }
 
 .products{  
-    height: 500px;
+    height: 400px;
     overflow-y: scroll
 }
 .products> .product{
@@ -138,7 +141,7 @@ table{
 /* Model css */
 .billModel{
     position: relative;
-    bottom: 550px;
+    bottom: 450px;
     margin : 0 35% 0 35%;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
