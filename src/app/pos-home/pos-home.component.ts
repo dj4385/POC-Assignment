@@ -45,23 +45,13 @@ export class PosHomeComponent implements OnInit {
     } else {
       this.selectedProducts.forEach(element => {
         if(element.name == event.name){
-          this.selectedProducts.forEach(element => {
-            if(element.name === event.name){
-              event.qty++
-              event.totalItemPrice = event.qty * parseInt(event.price)
-              this._qty = event.qty
-              this.subTotal = event.totalItemPrice
-              this.total = this.subTotal
-            }
-          });
+          flag = 0
         }
         else {
           flag = 1;
         }
         
       });
-      
-      
     }
 
     if(flag === 1){
@@ -70,9 +60,10 @@ export class PosHomeComponent implements OnInit {
       this.selectedProducts.push(event)
       this.calculateAmount()
     } else {
-      
-    }
-    
+        event.qty++
+        event.totalItemPrice = event.qty * parseInt(event.price)
+        this.calculateAmount()
+        }
   }
   calculateAmount(){
     this.selectedProducts.forEach(element => {
@@ -159,5 +150,5 @@ export class PosHomeComponent implements OnInit {
     this.billVAT = 0
     this.isBillGenerated = false
   }
-
+  
 }

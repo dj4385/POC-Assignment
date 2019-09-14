@@ -24,9 +24,6 @@ table{
     width: 100%;
     padding: 5px;
 }
-/* table>.table_header{
-    border: 2px solid red;
-} */
 
 .bill{
     background: white;
@@ -114,13 +111,9 @@ table{
     width: 30px;
     height: 30px;
 }
-.qty>input:nth-child(3){
-    width: 30px;
-    height: 30px;
-}
 .qty>input:nth-child(2){
     background-color: white;
-    width: 25px;
+    width: 35px;
     height: 25px;
     text-align: center;
     border-radius: 4px;
@@ -128,6 +121,11 @@ table{
     font-weight: 700;
     color: black;
 }
+.qty>input:nth-child(3){
+    width: 30px;
+    height: 30px;
+}
+
 .cross{
     background-color: red;
     border-radius: 50%;
@@ -139,8 +137,6 @@ table{
 
 /* Model css */
 .billModel{
-    /* display: inline-block; */
-    /* display: none; */
     position: relative;
     bottom: 550px;
     margin : 0 35% 0 35%;

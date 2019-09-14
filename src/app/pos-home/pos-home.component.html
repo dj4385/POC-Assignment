@@ -65,13 +65,9 @@
   <div class="col bgColor">
     <div class="products">
       <div class="product" *ngFor="let item of products">
-        <!-- <ng-container (click)="addItem()"> -->
           <img src='{{"../../assets/images/" + item.image}}' alt="" (click)="addItem(item)">
-          <!-- <div class="productContent" > -->
             <span>{{item.name}}</span><br>
             <p (click)="addItem(item)"><br> {{item.price}} <br> {{item.description}}</p>
-          <!-- </div> -->
-        <!-- </ng-container> -->
       </div>
     </div>
   </div>
