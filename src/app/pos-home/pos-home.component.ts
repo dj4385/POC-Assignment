@@ -10,9 +10,9 @@ export class PosHomeComponent implements OnInit {
 
   date = new Date
   products:any = []
-  subTotal = '0.000' 
-  total = '0.000'
-  _qty = '0'
+  subTotal = 0.000
+  total = 0.000
+  _qty = 0
   billQty = 0
   billTotalAmt = 0
   billDis = 0
@@ -65,6 +65,7 @@ export class PosHomeComponent implements OnInit {
         this.calculateAmount()
         }
   }
+
   calculateAmount(){
     this.selectedProducts.forEach(element => {
       this.subTotal = element.totalItemPrice 
@@ -72,6 +73,7 @@ export class PosHomeComponent implements OnInit {
       this.total = this.subTotal
     });
   }
+
   incrementQty(item){
     this.selectedProducts.forEach(element => {
       if(element.name === item.name){
@@ -83,6 +85,7 @@ export class PosHomeComponent implements OnInit {
       }
     });  
   }
+
   decrementQty(item){
     this.selectedProducts.forEach(element => {
       if(element.name === item.name){
@@ -112,17 +115,27 @@ export class PosHomeComponent implements OnInit {
     });
     if(flag === 1){
       this.selectedProducts.splice(this.selectedProducts.indexOf(item),1)
-      this.subTotal = '0.000' 
-      this.total = ''
-      this._qty = '0'
+      this.subTotal = 0.000
+      this.total = 0.000
+      this._qty = 0
     }
+  }
+
+  addVatAndDis(vat, dis){
+    if(vat === ""){
+      vat = 0
+    }
+    if(dis === ""){
+      dis = 0
+    }
+    this.total = parseInt(vat) + parseInt(dis) + this.subTotal
   }
 
   cancelSale(){
     this.selectedProducts.length = ''
-    this.subTotal = '0.000' 
-    this.total = ''
-    this._qty = '0'
+    this.subTotal = 0.000 
+    this.total = 0.000
+    this._qty = 0
   }
   processSale(){
     if(this.selectedProducts.length === 0){
@@ -141,13 +154,11 @@ export class PosHomeComponent implements OnInit {
   }
   close(){
     this.selectedProducts.length = ''
-    this.subTotal = '0.000' 
-    this.total = '0.000'
-    this._qty = '0'
+    this.subTotal = 0.000
+    this.total = 0.000
+    this._qty = 0
     this.billQty = 0
     this.billTotalAmt = 0
-    this.billDis = 0
-    this.billVAT = 0
     this.isBillGenerated = false
   }
   
