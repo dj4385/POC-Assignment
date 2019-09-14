@@ -75,7 +75,7 @@ table{
     background-color: blueviolet;
 }
 .products> .product>img{
-    height: 80px;
+    height: 100px;
     width: 100px;
     opacity: 0.2;
 }
@@ -83,13 +83,13 @@ table{
     position: relative;
     text-align: center;
     color:white;
-    bottom: 75px;
+    bottom: 100px;
 }
 .products> .product>p{
     position: relative;
     text-align: center;
     color:white;
-    bottom: 120px;
+    bottom: 145px;
     font-size: 14px;
     display: none
 }
