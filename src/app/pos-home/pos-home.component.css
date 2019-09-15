@@ -138,6 +138,9 @@ table{
     color: white;
     padding: 5px;
 }
+.cross:hover{
+    cursor: pointer;
+}
 
 /* Model css */
 .billModel{
