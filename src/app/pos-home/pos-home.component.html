@@ -13,6 +13,9 @@
           </tr>
         </thead>
         <tbody>
+          <tr *ngIf="selectedProducts.length == 0">
+            <td colspan="5"><h1>THERE ARE NO PRODUCTS</h1></td>
+          </tr>
           <tr *ngFor="let Selecteditem of selectedProducts">
             <td>
               <span class="cross" (click)="deleteItem(Selecteditem)">X</span>
@@ -39,12 +42,12 @@
         </tr>
         <tr>
           <td>VAT tax</td>
-          <td><input type="number" name="" id="" min="0" max="100" #vat (change)="addVatAndDis(vat.value,'')"></td>
+          <td><input type="number" name="" id="" min="0" max="100" #vat (change)="addVatAndDis(vat.value,dis.value)"></td>
           <td>EUR</td>
         </tr>
         <tr>
           <td>Discount</td>
-          <td><input type="number" name="" id="" min="0" max="100" #dis (change)="addVatAndDis('',dis.value)"></td>
+          <td><input type="number" name="" id="" min="0" max="100" #dis (change)="addVatAndDis(vat.value,dis.value)"></td>
           <td>EUR</td>
         </tr>
         <tr>

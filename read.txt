@@ -1,0 +1,3 @@
+First go to pos_Data folder using terminal and then start the json server at default port 3000.
+Then run the angular application.
+
